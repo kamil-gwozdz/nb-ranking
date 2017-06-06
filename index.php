@@ -28,7 +28,7 @@
             ->run();
             $i=0;
             foreach($users as $user){
-              echo '<tr onclick=location.href="user?id='.$user->id.'";>';
+              echo '<tr onclick=location.href="user.php?id='.$user->id.'";>';
               echo "<td>".++$i."</td>";
               echo "<td>".$user->name."</td>";
               echo "<td>".$user->points."</td>";

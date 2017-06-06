@@ -46,7 +46,7 @@
               $is_winner = $match->winner_id==$user_id;
               echo "<tr data-match-id=".$match->id.">";
               echo "<td>".$match->date->format('Y-m-d')."</td>";
-              echo '<td onclick=location.href="user?id='.($is_winner ? $winner->id : $loser->id).'";>'.($is_winner ? $winner->name : $loser->name)."</td>";
+              echo '<td onclick=location.href="user.php?id='.($is_winner ? $winner->id : $loser->id).'";>'.($is_winner ? $winner->name : $loser->name)."</td>";
               echo "<td>".($is_winner ? $match->winner_points : $match->loser_points)."</td>";
               echo "<td class=".($is_winner?"text-success":"text-danger").">".($is_winner ? "+". ((string)matchResult($match->winner_points,$match->loser_points)->winner-$match->winner_points) : matchResult($match->winner_points,$match->loser_points)->loser-$match->loser_points)."</td>";
               echo "<td>".($is_winner ? matchResult($match->winner_points,$match->loser_points)->winner : matchResult($match->winner_points,$match->loser_points)->loser)."</td>";
