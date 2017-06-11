@@ -27,10 +27,9 @@
             ->all()
             ->orderBy('points DESC')
             ->run();
-            $i=0;
             foreach($users as $user){
               echo '<tr onclick=location.href="user.php?id='.$user->id.'";>';
-              echo "<td>".++$i."</td>";
+              echo "<td>".($db->users->count()->where('points > :points', [':points' => $user->points])->run()+1)."</td>";
               echo "<td>".$user->name."</td>";
               echo "<td>".$user->points."</td>";
               echo "</tr>";

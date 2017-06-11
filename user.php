@@ -15,7 +15,7 @@
       <?php
         $user_id = $_GET['id'];
         $user_points = $db->users->select()->one()->by('id', $user_id)->run()->points;
-        echo "#".$db->users->count()->where('points >= :points', [':points' => $user_points])->run()." ";
+        echo "#".($db->users->count()->where('points > :points', [':points' => $user_points])->run()+1)." ";
         echo $db->users->select()->one()->by('id', $user_id)->run()->name;
         echo " <small>(";
         echo $user_points;
